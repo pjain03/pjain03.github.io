@@ -14,18 +14,21 @@ img{
 	border: 1px solid black;
 }
 a:link{
+	font-size: 1.5em;
 	display: block;
 	text-decoration: none;
 	color: #000000; 
 	text-align: center;
 }
 a:visited{
+	font-size: 1.5em;
 	display: block;
 	text-decoration: none;
 	color: #000000;
 	text-align: center;
 }
 a:hover{
+	font-size: 1.5em;
 	display: block;
 	text-decoration: underline;
 	color: #000000;

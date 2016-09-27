@@ -5,8 +5,15 @@ h1{
 }
 h3{
 	text-align: center;
+	font-family: serif;
+	line-height: 20%;
+	font-size: 1em;
+}
+h4{
+	margin-left: 2.5em;
 }
 p{
+	margin-left: 2.5em;
 	line-height: 40%;
 }
 a:link{
