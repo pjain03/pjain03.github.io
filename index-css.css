@@ -1,0 +1,22 @@
+h1{
+	font-family: Garamond;
+	font-size: 2em;
+	text-align: center;
+}
+img{
+	display: block;
+	margin: auto;
+	border: 1px solid black;
+}
+a:link{
+	display: block;
+	text-decoration: none;
+	text-decoration-color: #000000; 
+	text-align: center;
+}
+a:hover{
+	display: block;
+	text-decoration: underline;
+	text-decoration-color: #000000;
+	text-align: center;
+}
