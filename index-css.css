@@ -1,7 +1,12 @@
 h1{
-	font-family: Garamond;
-	font-size: 2em;
 	text-align: center;
+	font-size: 2em;
+	font-family: Garamond;
+}
+.line{
+	width: 100%;
+	height: 2px;
+	background-color: #000000;
 }
 img{
 	display: block;
@@ -11,12 +16,18 @@ img{
 a:link{
 	display: block;
 	text-decoration: none;
-	text-decoration-color: #000000; 
+	color: #000000; 
+	text-align: center;
+}
+a:visited{
+	display: block;
+	text-decoration: none;
+	color: #000000;
 	text-align: center;
 }
 a:hover{
 	display: block;
 	text-decoration: underline;
-	text-decoration-color: #000000;
+	color: #000000;
 	text-align: center;
 }
