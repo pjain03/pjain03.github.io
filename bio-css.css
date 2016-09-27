@@ -1,0 +1,17 @@
+h1{
+	text-align: center;
+	font-size: 2em;
+	font-family: Garamond;
+}
+h3{
+	margin-left: 5em;
+}
+p{
+	margin-left: 2.5em;
+	margin-right: 2.5em;
+}
+.line{
+	width: 100%;
+	height: 2px;
+	background-color: #000000;
+}
