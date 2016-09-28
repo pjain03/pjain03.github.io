@@ -3,18 +3,30 @@ h1{
 	font-size: 2em;
 	font-family: Garamond;
 }
-h3{
-	text-align: center;
-	font-family: serif;
-	line-height: 20%;
-	font-size: 1em;
-}
 h4{
 	margin-left: 2.5em;
 }
-p{
-	margin-left: 2.5em;
-	line-height: 40%;
+@media (min-width: 910px){
+	p{
+		margin-left: 2.5em;
+		line-height: 40%;
+	}
+	h3{
+		text-align: center;
+		font-family: serif;
+		line-height: 20%;
+		font-size: 1em;
+	}
+}
+@media (max-width: 909px){
+	p{
+		margin-left: 2.5em;
+	}
+	h3{
+		text-align: center;
+		font-family: serif;
+		font-size: 1em;
+	}
 }
 a:link{
 	text-decoration: none;
