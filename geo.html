@@ -18,7 +18,7 @@
 		var map;
 		var marker;
 		var infoWindow = new google.maps.InfoWindow();
-		function init(){
+		function initMap(){
 			map = new google.maps.Map(document.getElementById("map"), myOptions);
 			getLocation();
 		};
@@ -28,7 +28,6 @@
 				navigator.geolocation.getCurrentPosition(function(position){
 					myLat = position.coords.latitude;
 					myLng = position.coords.longitude;
-					console.log("aa");
 					renderMap();
 				});
 			}
@@ -37,6 +36,7 @@
 		};
  		
  		function renderMap(){
+ 			console.log("bb");
  			me = new google.maps.LatLng(myLat, myLng);
  			map.panTo(me);
  			marker = new google.maps.Marker({
@@ -52,7 +52,7 @@
  		};
 	</script>
 </head>
-<body onload = "init()">
+<body onload = "initMap()">
 	<div id = "map"></div>
 </body>
 </html>
