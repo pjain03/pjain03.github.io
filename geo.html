@@ -5,10 +5,8 @@
 	<meta charset = "utf-8"/>
 	<meta name = "viewport" content = "width= device-width, initial-scale = 1.0, user-scalable = no"/>
 	<link rel = "stylesheet" type = "text/css" href = "mbta_style.css"/>
-</head>
-<body>
-	<div id = "map"></div>
-	<script type = "text/javascript" src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAKEelRLrOTLesj11sX7WKa63GeeSbYllM&callback=init">
+	<script type = "text/javascript" src = "https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script>
 		var myLat = 0;
 		var myLng = 0;
 		var request = new XMLHttpRequest();
@@ -53,5 +51,8 @@
  			});
  		};
 	</script>
+</head>
+<body onload = "init()">
+	<div id = "map"></div>
 </body>
 </html>
