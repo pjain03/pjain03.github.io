@@ -1,5 +1,8 @@
+html{
+	height: 100%;
+	width: 100%;
+}
 #map{
-	height :100px;
-	width :100px;
-	border :1px black;
+	height :100%;
+	width :100%;
 }
