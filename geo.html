@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<title>Red Line T-Stop near me</title>
+	<meta charset = "utf-8"/>
+	<meta name = "viewport" content = "width= device-width, initial-scale = 1.0, user-scalable = no"/>
+	<link rel = "stylesheet" type = "text/css" href = "mbta_style.css"/>
+	<script type = "text/javascript" src = "https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script>
+		var myLat = 0;
+		var myLng = 0;
+		var request = new XMLHttpRequest();
+		var me = new google.maps.LatLng(myLat, myLng);
+		var myOptions = {
+			zoom: 8,
+			center: me
+		};
+		var map;
+		var marker;
+		var infoWindow = new google.maps.InfoWindow();
+		function init(){
+			map = new google.maps.Map(document.getElementById("map"), myOptions);
+			getLocation();
+		};
+
+		function getLocation(){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(function(position){
+					myLat = position.coords.latitude;
+					myLng = position.coords.longitude;
+					console.log("aa");
+					renderMap();
+				});
+			}
+			else
+				alert("Browser doesn't support geolocation");
+		};
+ 		
+ 		function renderMap(){
+ 			me = new google.maps.LatLng(myLat, myLng);
+ 			map.panTo(me);
+ 			marker = new google.maps.Marker({
+ 				position: me,
+ 				map: map,
+ 				animation: google.maps.Animation.DROP,
+ 				title: "Your Current Location"
+ 			});
+ 			google.maps.event.addListener(marker,'click', function(){
+ 				infoWindow.setContent(marker.title);
+ 				infoWindow.open(map,marker);
+ 			});
+ 		};
+	</script>
+</head>
+<body onload = "init()">
+	<div id = "map"></div>
+</body>
+</html>

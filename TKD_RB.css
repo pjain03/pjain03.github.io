@@ -1,0 +1,56 @@
+body{
+	/*background-image: url('TKD_RB_BG.jpg');*/
+	background-color: #000000;
+}
+img{
+	display: block;
+	margin: auto;
+	/*order: 1px solid #ffffff;*/
+}
+.vertical_line{
+	border-left :1px solid #ffffff;
+	height: 100%;
+	left: 50%;
+	position: fixed;
+	float: center;
+	display: inline-block;
+}
+.screen{
+		display: inline-block;
+		border: 1px solid #ffffff;
+		color: #000000;
+		text-align: center;
+		height: 125px;
+		width: 400px;
+		border-radius: 20%;
+}
+.screen:hover{
+		display: inline-block;
+		border: 1px solid #ffffff;
+		color: #ffffff;
+		text-align: center;
+		height: 125px;
+		width: 400px;
+		border-radius: 20%;
+}
+#left{
+	margin-left: 20%;
+}
+#right{
+	margin-left: 15%;
+}	
+a:link{
+	text-decoration: none;
+	font-family: Garamond;
+	font-size: 20px;
+	color: #ffffff;
+}
+a:hover{
+	text-decoration: none;
+	font-family: Garamond;
+	font-size: 20px;
+	color: #000000;
+}
+
+
+
