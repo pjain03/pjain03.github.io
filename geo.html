@@ -24,8 +24,8 @@
 		};
 
 		function getLocation(){
-			if(navigator.geoLocation){
-				navigator.geoLocation.getCurrentPosition(function(position){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(function(position){
 					myLat= position.coords.Latitude,
 					myLng= position.coords.Longitude,
 					renderMap()
