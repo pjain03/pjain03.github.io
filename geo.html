@@ -26,9 +26,9 @@
 		function getLocation(){
 			if(navigator.geolocation){  
 				navigator.geolocation.getCurrentPosition(function(position){
-					myLat= position.coords.Latitude,
-					myLng= position.coords.Longitude,
-					renderMap()
+					myLat= position.coords.Latitude;
+					myLng= position.coords.Longitude;
+					renderMap();
 				});
 			}
 			else
@@ -37,14 +37,14 @@
 
 		function renderMap(){
 			me= new google.maps.LatLng(myLat, myLng);
+			map.panTo(me);
 			marker= new google.maps.Marker({
 				position: me,
 				map: map,
 				animation: new google.maps.animation.DROP,
 				title: 'Your Current Location'
 			});
-			map.panTo(me);
-			marker.addListener('click', function(){
+			google.maps.event.addListener(marker, 'click', function(){
 				infoWindow.setContent(me,'Your Current Location'),
 				infoWindow.open(map, marker)
 			});		
