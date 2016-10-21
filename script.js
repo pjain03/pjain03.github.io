@@ -28,6 +28,7 @@ function getLocation(){
 
 function renderMap(){
     me= new google.maps.LatLng(myLat, myLng);
+    map.panTo(me);
     marker= new google.maps.Marker({
         position: me,
         map: map,
