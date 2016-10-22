@@ -11,7 +11,7 @@ var infoWindow;
 var names;
 var lat;
 var lng;
-var image= './train.png';
+var image= './icon.png';
 var stations= {
     names: ["South Station", "Andrew", "Porter Square", "Harvard Square", "JFK/UMass", "Savin Hill", 
     "Park Street", "Broadway", "North Quincy", "Shawmut", "Davis", "Alewife", "Kendall/MIT", 
