@@ -81,7 +81,7 @@ function markStations(){
             content: stationMarker.title
         });
         stationMarker[n].addListener('click', function(){
-            stationInfoWindow.open(map, marker);
+            stationInfoWindow.open(map, stationMarker[n]);
         });
     };
 };
