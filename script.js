@@ -69,7 +69,7 @@ function markStations(){
     stationMarker= new Array(stations.names.length);
     stationInfoWindow= new Array(stations.names.length);
     for(var n= 0; n < stations.names.length; n++){
-        var stationPosition= new google.maps.LatLng(stations.lat[n], 
+        stationPosition[n]= new google.maps.LatLng(stations.lat[n], 
             stations.lng[n]);
         stationMarker[n]= new google.maps.Marker({
             position: stationPosition,
@@ -87,5 +87,12 @@ function markStations(){
 };
 
 function markPaths(){
-
-}
+    var paths= new google.maps.Polyline({
+        path: stationPosition,
+        geodesic: true,
+        strokeColor: 'red',
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        map: map
+    });
+};
