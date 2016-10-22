@@ -2,7 +2,7 @@ var myLat=0;
 var myLng=0;
 var me= new google.maps.LatLng(myLat, myLng);
 var myOptions = {
-    zoom: 13,
+    zoom: 8,
     center: me
 };
 var map;
@@ -12,6 +12,7 @@ var names;
 var lat;
 var lng;
 var image= './icon.png';
+var stationPosition= new Array(22);
 var stations= {
     names: ["South Station", "Andrew", "Porter Square", "Harvard Square", "JFK/UMass", "Savin Hill", 
     "Park Street", "Broadway", "North Quincy", "Shawmut", "Davis", "Alewife", "Kendall/MIT", 
@@ -61,6 +62,7 @@ function renderMap(){
         infoWindow.open(map, marker);
     });
     markStations();
+    markPaths();
 };
 
 function markStations(){
@@ -78,5 +80,12 @@ function markStations(){
         stationInfoWindow= new google.maps.InfoWindow({
             content: stationMarker.title
         });
+        stationMarker[n].addListener('click', function(){
+            stationInfoWindow.open(map, marker);
+        });
     };
 };
+
+function markPaths(){
+
+}
