@@ -36,6 +36,7 @@ function init(){
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
+            console.log(request.responseText);
         };
     };
     request.send();
