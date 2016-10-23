@@ -37,10 +37,10 @@ function init(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
             console.log(request.responseText);
-        };
+        } 
         else if(request.readyState === XMLHttpRequest.DONE && request.status !== 200){
             processRequest();
-        };
+        }
     };
     getLocation();
 };    
