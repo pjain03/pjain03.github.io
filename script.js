@@ -59,6 +59,9 @@ function renderMap(){
     marker.addListener('click', function(){
          smallestDistance();
     });
+    stationMarker.addListener('click', function(){
+        console.log("something was clicked");
+    });
 };
 
 function markStations(){
