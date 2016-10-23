@@ -72,8 +72,7 @@ function markStations(){
         stationMarker[n]= new google.maps.Marker({
             position: stationPosition[n],
             map: map,
-            title: stations.names[n],
-            icon: image
+            title: stations.names[n]
         });
         stationInfoWindow[n]= new google.maps.InfoWindow({
             content: stationMarker[n].title
