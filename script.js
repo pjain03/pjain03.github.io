@@ -118,6 +118,7 @@ function checkClick(){
                 console.log(request.responseText);
             };
         };
+        request.send();
     });
     for(var i= 0; i < stationPosition.length; i++){
         stationMarker[i].addListener('click', function(){
