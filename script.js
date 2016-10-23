@@ -56,7 +56,9 @@ function renderMap(){
     });
     markStations();
     markPaths();
-    smallestDistance();
+    marker.addListener('click', function(){
+         smallestDistance();
+    });
 };
 
 function markStations(){
@@ -119,9 +121,7 @@ function smallestDistance(){
         };
     };
     smallestDist*= 0.000621371;
-    marker.addListener('click', function(){
-         renderInfoWindow(smallestDist, smallestDistPos);
-    });
+    renderInfoWindow(smallestDist, smallestDistPos);
     renderPolyline(smallestDistPos);
 };
 
