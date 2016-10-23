@@ -56,12 +56,7 @@ function renderMap(){
     });
     markStations();
     markPaths();
-    marker.addListener('click', function(){
-         smallestDistance();
-    });
-    stationMarker.addListener('click', function(){
-        console.log("something was clicked");
-    });
+    checkClick();
 };
 
 function markStations(){
@@ -109,6 +104,21 @@ function markPaths(){
         map: map
     });
     };
+};
+
+function checkClick(){
+    marker.addListener('click', function(){
+         smallestDistance();
+    });
+    for(var i= 0; i < stationPosition.length; i++){
+        stationMarker[i].addListener('click', function(){
+            displaySchedule(i);
+        });
+    };
+};
+
+function displaySchedule(i){
+    console.log(stations.names[i]);
 };
 
 function smallestDistance(){
