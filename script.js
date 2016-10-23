@@ -83,9 +83,7 @@ function markStations(){
         stationInfoWindow[n]= new google.maps.InfoWindow({
             content: stationMarker[n].title
         });
-        stationMarker[n].addListener('click', function(){
-            stationInfoWindow[n].open(map, stationMarker[n]);
-        });
+        stationInfoWindow[n].open(map, stationMarker[n]);
     };
     markPaths();
 };
