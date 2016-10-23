@@ -135,10 +135,8 @@ function renderInfoWindow(smallestDist, smallestDistPos){
 };
 
 function renderPolyline(smallestDistPos){
-    var nearestStation= stationPosition[smallestDistPos];
-    var shortestLatLng= {me, nearestStation};
     var shortestPath= new google.maps.Polyline({
-        path: shortestLatLng,
+        path: [me, stationPosition[smallestDistPos]],
         strokeColor: '#00ff00',
         strokeOpacity: 1.0,
         strokeWeight: 2,
