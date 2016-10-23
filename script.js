@@ -111,7 +111,7 @@ function checkClick(){
          smallestDistance();
     });
     stationMarker[0].addListener('click', function(){
-        var request= XMLHttpRequest();
+        var request= new XMLHttpRequest();
         request.open("get", "https://messagehub.herokuapp.com/messages.json", true);
         request.onreadystatechange= function(){
             if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
