@@ -12,6 +12,8 @@ var names;
 var lat;
 var lng;
 var image= './icon.png';
+var request= new XMLHttpRequest();
+var schedule= null;
 var stationPosition= new Array(22);
 var stations= {
     names: ["Alewife", "Davis", "Porter Square", "Harvard Square", "Central Square", "Kendall/MIT", 
@@ -30,6 +32,13 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
+    request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json");
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
+            schedule= request.responseText();
+        };
+    };
+    request.send();
     getLocation();
 };    
 
@@ -110,27 +119,8 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
-    stationMarker[0].addListener('click', function(){
-        var request= new XMLHttpRequest();
-        request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
-        request.onreadystatechange= function(){
-            while(request.status !== 200){
-                console.log(request.responseText);
-            };
-        };
-        request.send();
-    });
-    for(var i= 0; i < stationPosition.length; i++){
-        stationMarker[i].addListener('click', function(){
-            displaySchedule(i);
-        });
-    };
+    
 };
-
-function displaySchedule(i){
-    console.log(i);
-};
-
 function smallestDistance(){
     var smallestDist= google.maps.geometry.spherical.computeDistanceBetween(
         me,stationPosition[0]);
