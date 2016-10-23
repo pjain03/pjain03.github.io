@@ -11,7 +11,6 @@ var infoWindow;
 var names;
 var lat;
 var lng;
-var image= './icon.png';
 var request= new XMLHttpRequest();
 var schedule= null;
 var stationPosition= new Array(22);
@@ -128,6 +127,13 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
+
+    for(var n= 0; n < stations.names.length; n++){
+        stationMarker[n].addListener('click', function(){
+            setUpInfoWindow(n);
+        });
+    }
+/*
     stationMarker[0].addListener('click', function(){
         setUpInfoWindow(0);
     });
@@ -162,7 +168,7 @@ function checkClick(){
         setUpInfoWindow(10);
     });
     stationMarker[11].addListener('click', function(){
-        setUpInfoWindow(12);
+        setUpInfoWindow(11);
     });
     stationMarker[12].addListener('click', function(){
         setUpInfoWindow(12);
@@ -193,7 +199,7 @@ function checkClick(){
     });
     stationMarker[21].addListener('click', function(){
         setUpInfoWindow(21);
-    });
+    });*/
 };
 
 function setUpInfoWindow(i){
