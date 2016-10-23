@@ -101,7 +101,6 @@ function markPaths(){
     };
     var pathsJFK= new google.maps.Polyline({
         path: stationPosition1,
-        geodesic: true,
         strokeColor: 'red',
         strokeOpacity: 1.0,
         strokeWeight: 2,
