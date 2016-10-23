@@ -133,14 +133,15 @@ function calcDist(i){
     var a= Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(toRad(lat)) *
         Math.cos(toRad(myLat)) * Math.sin(dLng/2) * Math.sin(dLng/2);
     var c= 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d= R * c;
+    var d= R * c/0.621371;
     return d;
 };
 
 function renderInfoWindow(smallestDist, smallestDistPos){
     infoWindow= new google.maps.InfoWindow({
         content: "Closest station to you is " + 
-            stations.names[smallestDistPos] + ". Distance from you is " + smallestDist + "."
+            stations.names[smallestDistPos] + 
+            ". Distance from you is " + smallestDist + " miles."
     });
     marker.addListener('click', function(){
         infoWindow.open(map, marker);
