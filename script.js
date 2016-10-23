@@ -95,7 +95,7 @@ function markPaths(){
         stationPositionPath[1][n]= stationPosition[12+n];
     };
     stationPositionPath[2]= new Array(5);
-    stationPosition[2][0] = stationPosition[12];
+    stationPositionPath[2][0] = stationPosition[12];
     for(var n= 1; n <stationPositionPath[2].length; n++){
         stationPositionPath[2][n] = stationPosition[17+n];
     };
