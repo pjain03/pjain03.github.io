@@ -56,7 +56,7 @@ function renderMap(){
     });
     markStations();
     markPaths();
-    haversine();
+    smallestDistance();
 };
 
 function markStations(){
@@ -106,35 +106,20 @@ function markPaths(){
     };
 };
 
-function haversine(){
-    var smallestDist= calcDist(0);
+function smallestDistance(){
+    var smallestDist= google.maps.geometry.spherical.computeDistanceBetween(
+        me,stationPosition[0]);
     var smallestDistPos= 0;
     for(var n= 1; n < stationPosition.length; n++){
-        if(calcDist(n) < smallestDist){
-            smallestDist= calcDist(n);
+        dist= google.maps.geometry.spherical.computeDistanceBetween(
+            me, stationPosition[n]);
+        if(dist < smallestDist){
+            smallestDist= dist;
             smallestDistPos= n;
         };
     };
+    smallestDist*= 0.000621371;
     renderInfoWindow(smallestDist, smallestDistPos);
-};
-
-function toRad(x){
-    return x * Math.PI/180;
-};
-
-function calcDist(i){
-    var lat= stations.lat[i];
-    var lng= stations.lng[i];
-    var R= 6371;
-    var x1= myLat - lat;
-    var dLat= toRad(x1);
-    var x2= myLng - lng;
-    var dLng= toRad(x2);
-    var a= Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(toRad(lat)) *
-        Math.cos(toRad(myLat)) * Math.sin(dLng/2) * Math.sin(dLng/2);
-    var c= 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d= R * c/0.621371;
-    return d;
 };
 
 function renderInfoWindow(smallestDist, smallestDistPos){
