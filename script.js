@@ -113,7 +113,7 @@ function smallestDistance(){
         me,stationPosition[0]);
     var smallestDistPos= 0;
     for(var n= 1; n < stationPosition.length; n++){
-        dist= google.maps.geometry.spherical.computeDistanceBetween(
+        var dist= google.maps.geometry.spherical.computeDistanceBetween(
             me, stationPosition[n]);
         if(dist < smallestDist){
             smallestDist= dist;
