@@ -35,7 +35,7 @@ function init(){
     request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json");
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
-            schedule= request.responseText();
+            schedule= request.responseText;
         };
     };
     request.send();
