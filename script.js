@@ -132,6 +132,7 @@ function checkClick(){
     stationMarker[k].addListener('click', function(){
         setUpInfoWindow(k++);
     });
+    console.log(k);
     stationMarker[k].addListener('click', function(){
         setUpInfoWindow(k++);
     });
