@@ -114,7 +114,7 @@ function checkClick(){
         var request= new XMLHttpRequest();
         request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
         request.onreadystatechange= function(){
-            if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
+            while(request.status !== 200){
                 console.log(request.responseText);
             };
         };
