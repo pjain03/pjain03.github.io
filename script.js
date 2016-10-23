@@ -76,8 +76,8 @@ function markStations(){
             icon: {
                 path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
                 scale: 3,
-                strokeColor: '#ff0000',
-                strokeWeight: 1
+                strokeColor: '#0000ff',
+                strokeWeight: 2
             }
         });
         stationInfoWindow[n]= new google.maps.InfoWindow({
