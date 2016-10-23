@@ -31,7 +31,6 @@ var stationInfoWindow;
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
     getLocation();
-    haversine();
 };    
 
 function getLocation(){
@@ -57,6 +56,7 @@ function renderMap(){
     });
     markStations();
     markPaths();
+    haversine();
 };
 
 function markStations(){
@@ -107,12 +107,40 @@ function markPaths(){
 };
 
 function haversine(){
+    var smallestDist= calcDist(0);
+    var smallestDistPos= 0;
+    for(var n= 1; n < stationPosition.length; n++){
+        if(calcDist(n) < smallestDist){
+            smallestDist= calcDist(n);
+            smallestDistPos= n;
+        };
+    };
+    console.log(stations.names[n]);
     renderInfoWindow();
+};
+
+function toRad(x){
+    return x * Math.PI/180;
+};
+
+function calcDist(i){
+    var lat= stations.lat[i];
+    var lng= stations.lng[i];
+    var R= 6371;
+    var x1= myLat - lat;
+    var dLat= toRad(x1);
+    var x2= myLng - lng;
+    var dLng= toRad(x2);
+    var a= Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(toRad(lat)) *
+        Math.cos(toRad(myLat)) * Math.sin(dLng/2) * Math.sin(dLng/2);
+    var c= 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d= R * c;
+    return d;
 };
 
 function renderInfoWindow(){
     infoWindow= new google.maps.InfoWindow({
-        content: marker.title
+        content: "your location"
     });
     marker.addListener('click', function(){
         infoWindow.open(map, marker);
