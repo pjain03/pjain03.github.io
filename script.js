@@ -73,7 +73,9 @@ function markStations(){
             position: stationPosition[n],
             map: map,
             title: stations.names[n],
-            icon: image
+            icon: {
+                path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW
+            };
         });
         stationInfoWindow[n]= new google.maps.InfoWindow({
             content: stationMarker[n].title
