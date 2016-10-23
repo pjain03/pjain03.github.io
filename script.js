@@ -72,7 +72,8 @@ function markStations(){
         stationMarker[n]= new google.maps.Marker({
             position: stationPosition[n],
             map: map,
-            title: stations.names[n]
+            title: stations.names[n],
+            icon: image
         });
         stationInfoWindow[n]= new google.maps.InfoWindow({
             content: stationMarker[n].title
@@ -87,19 +88,22 @@ function markStations(){
 function markPaths(){
     var stationPositionPath= new Array(3);
     stationPositionPath[0]= new Array(13);
+    stationPositionPath[1]= new Array(6);
+    stationPositionPath[2]= new Array(5);
+    var paths= new Array(3);
+
     for(var n= 0; n < stationPositionPath[0].length; n++){
         stationPositionPath[0][n]= stationPosition[n];
     };
-    stationPositionPath[1]= new Array(6);
     for(var n= 0; n < stationPositionPath[1].length; n++){
         stationPositionPath[1][n]= stationPosition[12+n];
+        console.log(stationPosition[12+n].name);
     };
-    stationPositionPath[2]= new Array(5);
     stationPositionPath[2][0] = stationPosition[12];
-    for(var n= 1; n <stationPositionPath[2].length; n++){
+    for(var n= 1; n < stationPositionPath[2].length; n++){
         stationPositionPath[2][n] = stationPosition[17+n];
+        console.log(stationPosition[17+n]);
     };
-    var paths= new Array(3);
     for(var n= 0; n < paths.length; n++){
         paths[n]= new google.maps.Polyline({
         path: stationPositionPath[n],
