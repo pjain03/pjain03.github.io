@@ -112,7 +112,7 @@ function checkClick(){
     });
     stationMarker[0].addListener('click', function(){
         var request= new XMLHttpRequest();
-        request.open("get", "https://messagehub.herokuapp.com/messages.json", true);
+        request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
         request.onreadystatechange= function(){
             if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
                 console.log(request.responseText);
