@@ -115,7 +115,7 @@ function haversine(){
             smallestDistPos= n;
         };
     };
-    console.log(stations.names[n]);
+    console.log(stations.names[smallestDistPos]);
     renderInfoWindow();
 };
 
