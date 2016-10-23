@@ -100,7 +100,7 @@ function markPaths(){
     for(var n= 0; n < paths.length; n++){
         paths[n]= new google.maps.Polyline({
         path: stationPositionPath[n],
-        strokeColor: 'red',
+        strokeColor: '#ff0000',
         strokeOpacity: 1.0,
         strokeWeight: 2,
         map: map
@@ -122,6 +122,7 @@ function smallestDistance(){
     };
     smallestDist*= 0.000621371;
     renderInfoWindow(smallestDist, smallestDistPos);
+    renderPolyline(smallestDistPos);
 };
 
 function renderInfoWindow(smallestDist, smallestDistPos){
@@ -131,4 +132,14 @@ function renderInfoWindow(smallestDist, smallestDistPos){
             ". Distance from you is " + smallestDist + " miles."
     });
     infoWindow.open(map, marker);
+};
+
+function renderPolyline(smallestDistPos){
+    var shortestPath= new google.maps.Polyline({
+        path: {me, stationPosition[smallestDistPos]},
+        strokeColor: '#00ff00',
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        map: map
+    });
 };
