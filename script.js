@@ -128,13 +128,11 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
-    var k= 0;
-    stationMarker[k].addListener('click', function(){
-        setUpInfoWindow(k);
+    stationMarker[0].addListener('click', function(){
+        setUpInfoWindow(0);
     });
-    k+= 1;
-    stationMarker[k].addListener('click', function(){
-        setUpInfoWindow(k);
+    stationMarker[1].addListener('click', function(){
+        setUpInfoWindow(1);
     });
     stationMarker[2].addListener('click', function(){
         setUpInfoWindow(2);
@@ -147,6 +145,54 @@ function checkClick(){
     });
     stationMarker[5].addListener('click', function(){
         setUpInfoWindow(5);
+    });
+    stationMarker[6].addListener('click', function(){
+        setUpInfoWindow(6);
+    });
+    stationMarker[7].addListener('click', function(){
+        setUpInfoWindow(7);
+    });
+    stationMarker[8].addListener('click', function(){
+        setUpInfoWindow(8);
+    });
+    stationMarker[9].addListener('click', function(){
+        setUpInfoWindow(9);
+    });
+    stationMarker[10].addListener('click', function(){
+        setUpInfoWindow(10);
+    });
+    stationMarker[11].addListener('click', function(){
+        setUpInfoWindow(12);
+    });
+    stationMarker[12].addListener('click', function(){
+        setUpInfoWindow(12);
+    });
+    stationMarker[13].addListener('click', function(){
+        setUpInfoWindow(13);
+    });
+    stationMarker[14].addListener('click', function(){
+        setUpInfoWindow(14);
+    });
+    stationMarker[15].addListener('click', function(){
+        setUpInfoWindow(15);
+    });
+    stationMarker[16].addListener('click', function(){
+        setUpInfoWindow(16);
+    });
+    stationMarker[17].addListener('click', function(){
+        setUpInfoWindow(17);
+    });
+    stationMarker[18].addListener('click', function(){
+        setUpInfoWindow(18);
+    });
+    stationMarker[19].addListener('click', function(){
+        setUpInfoWindow(19);
+    });
+    stationMarker[20].addListener('click', function(){
+        setUpInfoWindow(20);
+    });
+    stationMarker[21].addListener('click', function(){
+        setUpInfoWindow(21);
     });
 };
 
