@@ -110,6 +110,16 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
+    stationMarker[0].addListener('click', function(){
+        var request= XMLHttpRequest();
+        request.open("get", "https://messagehub.herokuapp.com/messages.json", true);
+        request.onreadystatechange= function(){
+            if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
+                console.log(request.responseText);
+            };
+        };
+        request.send();
+    });
     for(var i= 0; i < stationPosition.length; i++){
         stationMarker[i].addListener('click', function(){
             displaySchedule(i);
