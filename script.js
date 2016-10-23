@@ -80,10 +80,10 @@ function markStations(){
             content: stationMarker[n].title
         });
         stationMarker[n].addListener('click', function(){
-            stationInfoWindow.open(map, stationMarker[n]);
+            stationInfoWindow[n].open(map, stationMarker[n]);
         });
     };
-    //markPaths();
+    markPaths();
 };
 
 function markPaths(){
