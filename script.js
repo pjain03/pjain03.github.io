@@ -130,11 +130,11 @@ function checkClick(){
     });
     var k= 0;
     stationMarker[k].addListener('click', function(){
-        setUpInfoWindow(k++);
+        setUpInfoWindow(k);
     });
-    console.log(k);
+    k+= 1;
     stationMarker[k].addListener('click', function(){
-        setUpInfoWindow(k++);
+        setUpInfoWindow(k);
     });
     stationMarker[2].addListener('click', function(){
         setUpInfoWindow(2);
