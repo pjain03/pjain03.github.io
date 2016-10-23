@@ -31,6 +31,7 @@ var stationInfoWindow;
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
     getLocation();
+    haversine();
 };    
 
 function getLocation(){
@@ -54,13 +55,8 @@ function renderMap(){
         title: "Your Current Position",
         animation: google.maps.Animation.DROP
     });
-    infoWindow= new google.maps.InfoWindow({
-        content: marker.title
-    });
-    marker.addListener('click', function(){
-        infoWindow.open(map, marker);
-    });
     markStations();
+    markPaths();
 };
 
 function markStations(){
@@ -80,7 +76,6 @@ function markStations(){
             }
         });
     };
-    markPaths();
 };
 
 function markPaths(){
@@ -109,4 +104,17 @@ function markPaths(){
         map: map
     });
     };
+};
+
+function haversine(){
+    renderInfoWindow();
+};
+
+function renderInfoWindow(){
+    infoWindow= new google.maps.InfoWindow({
+        content: marker.title
+    });
+    marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+    });
 };
