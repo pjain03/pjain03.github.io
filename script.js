@@ -118,7 +118,7 @@ function checkClick(){
 };
 
 function displaySchedule(i){
-    console.log(stations.names[i]);
+    console.log(i);
 };
 
 function smallestDistance(){
