@@ -92,7 +92,7 @@ function infoWindowCheck(){
     for(var n= 0; n < stationMarker.length; n++){}
     stationMarker[n].addListener('click', function(){
         stationInfoWindow[n].open(map, stationMarker[n]);
-    };
+    });
 };
 };
 
