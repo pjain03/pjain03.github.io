@@ -71,13 +71,13 @@ function markStations(){
         stationPosition[n]= new google.maps.LatLng(stations.lat[n], 
             stations.lng[n]);
         stationMarker[n]= new google.maps.Marker({
-            position: stationPosition,
+            position: stationPosition[n],
             map: map,
             title: stations.names[n],
             icon: image
         });
-        stationInfoWindow= new google.maps.InfoWindow({
-            content: stationMarker.title
+        stationInfoWindow[n]= new google.maps.InfoWindow({
+            content: stationMarker[n].title
         });
         stationMarker[n].addListener('click', function(){
             stationInfoWindow.open(map, stationMarker[n]);
