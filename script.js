@@ -83,7 +83,7 @@ function markStations(){
             stationInfoWindow.open(map, stationMarker[n]);
         });
     };
-    markPaths();
+    //markPaths();
 };
 
 function markPaths(){
