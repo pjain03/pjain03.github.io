@@ -56,7 +56,9 @@ function renderMap(){
     });
     markStations();
     markPaths();
-    smallestDistance();
+    marker.addListener('click', function(){
+         smallestDistance();
+    });
 };
 
 function markStations(){
@@ -128,7 +130,5 @@ function renderInfoWindow(smallestDist, smallestDistPos){
             stations.names[smallestDistPos] + 
             ". Distance from you is " + smallestDist + " miles."
     });
-    marker.addListener('click', function(){
-        infoWindow.open(map, marker);
-    });
+    infoWindow.open(map, marker);
 };
