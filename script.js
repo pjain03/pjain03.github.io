@@ -75,7 +75,7 @@ function markStations(){
             title: stations.names[n],
             icon: {
                 path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                scale: 7
+                scale: 5
             }
         });
         stationInfoWindow[n]= new google.maps.InfoWindow({
