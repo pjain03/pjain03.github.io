@@ -128,9 +128,24 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
-
-    stationMarker[0].addListener('click', function(){
-        setUpInfoWindow(0);
+    var k= 0;
+    stationMarker[k].addListener('click', function(){
+        setUpInfoWindow(k++);
+    });
+    stationMarker[k].addListener('click', function(){
+        setUpInfoWindow(k++);
+    });
+    stationMarker[2].addListener('click', function(){
+        setUpInfoWindow(2);
+    });
+    stationMarker[3].addListener('click', function(){
+        setUpInfoWindow(3);
+    });
+    stationMarker[4].addListener('click', function(){
+        setUpInfoWindow(4);
+    });
+    stationMarker[5].addListener('click', function(){
+        setUpInfoWindow(5);
     });
 };
 
