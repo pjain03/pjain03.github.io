@@ -15,6 +15,7 @@ var image= './icon.png';
 var request= new XMLHttpRequest();
 var schedule= null;
 var stationPosition= new Array(22);
+var infoWindowStations= new Array(22);
 var stations= {
     names: ["Alewife", "Davis", "Porter Square", "Harvard Square", "Central Square", "Kendall/MIT", 
     "Charles/MGH", "Park Street", "Downtown Crossing", "South Station", "Broadway", "Andrew", "JFK/UMass", 
@@ -127,13 +128,19 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
+
     stationMarker[0].addListener('click', function(){
-        infoWindow1= new google.maps.InfoWindow({
-            content: stations.names[0]
-        });
-        infoWindow1.open(map, stationMarker[0]);
+        setUpInfoWindow(0);
     });
 };
+
+function setUpInfoWindow(i){
+    infoWindowStations[i]= new google.maps.InfoWindow({
+        content: stations.names[i]
+    });
+    infoWindowStations[i].open(map, stationMarker[i]);
+};
+
 function smallestDistance(){
     var smallestDist= google.maps.geometry.spherical.computeDistanceBetween(
         me,stationPosition[0]);
