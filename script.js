@@ -32,16 +32,16 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
-    processRequest();
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
             console.log(request.responseText);
         } 
-        else if(request.readyState === XMLHttpRequest.DONE && request.status !== 200){
+        else if(request.readyState === XMLHttpRequest.DONE && request.status === 404){
             processRequest();
         }
     };
+    processRequest();
     getLocation();
 };    
 
