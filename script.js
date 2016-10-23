@@ -115,8 +115,7 @@ function haversine(){
             smallestDistPos= n;
         };
     };
-    console.log(stations.names[smallestDistPos]);
-    renderInfoWindow();
+    renderInfoWindow(smallestDist, smallestDistPos);
 };
 
 function toRad(x){
@@ -138,9 +137,10 @@ function calcDist(i){
     return d;
 };
 
-function renderInfoWindow(){
+function renderInfoWindow(smallestDist, smallestDistPos){
     infoWindow= new google.maps.InfoWindow({
-        content: "your location"
+        content: "Closest station to you is " + 
+            stations.names[smallestDistPos] + ". Distance from you is " + smallestDist + "."
     });
     marker.addListener('click', function(){
         infoWindow.open(map, marker);
