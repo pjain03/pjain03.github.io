@@ -129,9 +129,8 @@ function checkClick(){
     });
 
     for(var n= 0; n < stations.names.length; n++){
-        stationMarker[n].addListener('click', function(){
-            setUpInfoWindow(n);
-        });
+        var tempMarker= stationMarker[n];
+        setUpInfoWindow(tempMarker);
     }
 /*
     stationMarker[0].addListener('click', function(){
@@ -203,10 +202,12 @@ function checkClick(){
 };
 
 function setUpInfoWindow(i){
-    infoWindowStations[i]= new google.maps.InfoWindow({
-        content: stations.names[i]
+    i.addListener('click', function(){
+    infoWindowStation= new google.maps.InfoWindow({
+              content: stationMarker.title
+     });
+     infoWindowStation.open(map, i);
     });
-    infoWindowStations[i].open(map, stationMarker[i]);
 };
 
 function smallestDistance(){
