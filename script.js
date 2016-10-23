@@ -62,7 +62,6 @@ function renderMap(){
         infoWindow.open(map, marker);
     });
     markStations();
-    markPaths();
 };
 
 function markStations(){
@@ -84,6 +83,7 @@ function markStations(){
             stationInfoWindow.open(map, stationMarker[n]);
         });
     };
+    markPaths();
 };
 
 function markPaths(){
