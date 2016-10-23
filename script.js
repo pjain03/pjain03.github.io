@@ -32,16 +32,23 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
-    request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json");
+    processRequest();
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
             console.log(request.responseText);
         };
+        else if(request.readyState === XMLHttpRequest.DONE && request.status !== 200){
+            processRequest();
+        };
     };
-    request.send();
     getLocation();
 };    
+
+function processRequest(){
+    request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
+    request.send();
+};
 
 function getLocation(){
     if(navigator.geolocation){
