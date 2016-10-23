@@ -85,26 +85,28 @@ function markStations(){
 };
 
 function markPaths(){
-    var stationPosition1= new Array(13);
-    for(var n= 0; n < stationPosition1.length; n++){
-        stationPosition1[n]= stationPosition[n];
+    var stationPositionPath= new Array(3);
+    stationPositionPath[0]= new Array(13);
+    for(var n= 0; n < stationPositionPath[0].length; n++){
+        stationPositionPath[0][n]= stationPosition[n];
     };
-    var stationPosition2= new Array(6);
-    for(var n= 0; n < stationPosition2.length; n++){
-        stationPosition2[n]= stationPosition[12+n];
+    stationPositionPath[1]= new Array(6);
+    for(var n= 0; n < stationPositionPath[1].length; n++){
+        stationPositionPath[1][n]= stationPosition[12+n];
     };
-    var stationPosition3= new Array(5);
-    stationPosition3[0] = stationPosition[12];
-    for(var n= 1; n <stationPosition3.length; n++){
-        stationPosition3[n] = stationPosition[17+n];
+    stationPositionPath[2]= new Array(5);
+    stationPosition[2][0] = stationPosition[12];
+    for(var n= 1; n <stationPositionPath[2].length; n++){
+        stationPositionPath[2][n] = stationPosition[17+n];
     };
-    var pathsJFK= new google.maps.Polyline({
-        path: stationPosition1,
+    var paths= new Array(3);
+    for(var n= 0; n < paths.length; n++){
+        paths[n]= new google.maps.Polyline({
+        path: stationPositionPath[n],
         strokeColor: 'red',
         strokeOpacity: 1.0,
         strokeWeight: 2,
         map: map
     });
-    var pathAshmont;
-    var pathsBraintree;
+    };
 };
