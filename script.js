@@ -127,7 +127,12 @@ function checkClick(){
     marker.addListener('click', function(){
          smallestDistance();
     });
-    
+    stationMarker[0].addListener('click', function(){
+        infoWindow1= new google.maps.InfoWindow({
+            content: stations.names[0]
+        });
+        infoWindow1.open(map, stationMarker[0]);
+    });
 };
 function smallestDistance(){
     var smallestDist= google.maps.geometry.spherical.computeDistanceBetween(
