@@ -32,7 +32,6 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
-    processRequest();
     getLocation();
 };    
 
@@ -125,6 +124,7 @@ function markPaths(){
 };
 
 function checkClick(){
+    processRequest();
     infoWindowStationsInit(); 
     marker.addListener('click', function(){
         closeAll();
