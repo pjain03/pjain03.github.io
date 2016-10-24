@@ -32,6 +32,7 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
+    processRequest();
     getLocation();
 };    
 
@@ -157,7 +158,6 @@ function infoWindowStationsInit(){
 };
 
 function updateDetails(i){
-    processRequest();
     var limit= schedule.TripList.Trips.length;
     var update= "<u>Trains Passing through " + i +":</u><br/>";
     for(var n= 0; n < limit; n++){
