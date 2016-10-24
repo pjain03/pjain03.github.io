@@ -152,7 +152,7 @@ function infoWindowStationsInit(){
 
 function updateDetails(i){
     processRequest();
-    var limit= schedule.TripList[2].length;
+    var limit= schedule.TripList.Trips.length;
     console.log(limit);
 }
 
