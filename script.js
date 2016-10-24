@@ -173,6 +173,7 @@ function updateDetails(i){
         if(flag){
             update+= "Final Destination is " + schedule.TripList.Trips[n].Destination + ": <br/>" + pred + "<br/>";
         }
+        flag= false;
     };
     return update;
 };
