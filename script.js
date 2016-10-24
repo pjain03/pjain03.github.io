@@ -144,7 +144,6 @@ function closeAll(){
 
 function infoWindowStationsInit(){
     for(var n= 0; n < stations.names.length; n++){
-        var details= updateDetails(stations.names[n]);
         infoWindowStations[n]= new google.maps.InfoWindow({
             content: stations.names[n] 
         });
@@ -152,12 +151,16 @@ function infoWindowStationsInit(){
 };
 
 function updateDetails(i){
-    return i;
+    processRequest();
+    var limit= schedule.TripList[2].length;
+    console.log(limit);
 }
 
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
         closeAll();
+        infoWindowStationsInit();
+        updateDetails(sinfoWindow.content);
         sinfoWindow.open(map, smarker);
     });
 };
