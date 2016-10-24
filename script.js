@@ -124,7 +124,6 @@ function markPaths(){
 };
 
 function checkClick(){
-    processRequest();
     infoWindowStationsInit(); 
     marker.addListener('click', function(){
         closeAll();
@@ -158,6 +157,7 @@ function infoWindowStationsInit(){
 };
 
 function updateDetails(i){
+    processRequest();
     var limit= schedule.TripList.Trips.length;
     var update= "<u>Trains Passing through " + i +":</u><br/>";
     for(var n= 0; n < limit; n++){
