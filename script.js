@@ -131,6 +131,10 @@ function checkClick(){
         infoWindowStationsInit(); 
         smallestDistance();
     });
+    stationMarkerIWSetup();
+};
+
+function stationMarkerIWSetup(){
     for(var n= 0; n < stations.names.length; n++){
         setUpInfoWindow(stationMarker[n], infoWindowStations[n]);
     };
