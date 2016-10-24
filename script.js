@@ -35,7 +35,7 @@ function init(){
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
-            console.log(request.responseText);
+            schedule= JSON.parse(schedule);
         } 
         else if(request.readyState === XMLHttpRequest.DONE && request.status === 404){
             processRequest();
