@@ -125,7 +125,6 @@ function markPaths(){
 };
 
 function checkClick(){
-    infoWindowStationsInit();
     marker.addListener('click', function(){
         closeAll();
         smallestDistance();
@@ -135,12 +134,13 @@ function checkClick(){
     };
 };
 
-function closeAll(){    
+function closeAll(){   
+    infoWindowStationsInit(); 
     infoWindow.close();
     for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n].close();
     };  
-}
+};
 
 function infoWindowStationsInit(){
     for(var n= 0; n < stations.names.length; n++){
@@ -166,16 +166,15 @@ function updateDetails(i){
             }
         };
         if(flag){
-            update+= "Final Destination is " + schedule.TripList.Trips[n].Destination + ": " + pred + "<br/>";
+            update+= "Final Destination is " + schedule.TripList.Trips[n].Destination + "<br/>: " + pred + "<br/>";
         }
     };
     return update;
-}
+};
 
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
         closeAll();
-        infoWindowStationsInit();
         updatedContent= updateDetails(sinfoWindow.content);
         sinfoWindow.setContent(updatedContent);
         sinfoWindow.open(map, smarker);
