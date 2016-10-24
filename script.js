@@ -158,10 +158,11 @@ function updateDetails(i){
         var limitPred= schedule.TripList.Trips[n].Predictions.length;
         var flag= false;
         var pred= " ";
-        for(var o= 0; o < limitPred.length; o++){
+        for(var o= 0; o < limitPred; o++){
             if(i === schedule.TripList.Trips[n].Predictions[o].Stop){
                 pred+= schedule.TripList.Trips[n].Predictions[o].Stop + ", in " +
                     schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds ||";
+                flag= true;
             }
         };
         if(flag){
