@@ -153,7 +153,7 @@ function infoWindowStationsInit(){
 function updateDetails(i){
     processRequest();
     var limit= schedule.TripList.Trips.length;
-    var update= "Trains Passing through " + i +":<br/>";
+    var update= "<u>Trains Passing through</u> " + i +":<br/>";
     for(var n= 0; n < limit; n++){
         var limitPred= schedule.TripList.Trips[n].Predictions.length;
         var flag= false;
@@ -161,12 +161,12 @@ function updateDetails(i){
         for(var o= 0; o < limitPred; o++){
             if(i === schedule.TripList.Trips[n].Predictions[o].Stop){
                 pred+= schedule.TripList.Trips[n].Predictions[o].Stop + ", in " +
-                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds \n";
+                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds <br/>";
                 flag= true;
             }
         };
         if(flag){
-            update+= schedule.TripList.Trips[n].Destination + ": " + pred + "\n";
+            update+= "Final Destination is " + schedule.TripList.Trips[n].Destination + ": " + pred + "<br/>";
         }
     };
     return update;
