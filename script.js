@@ -125,7 +125,8 @@ function markPaths(){
 
 function checkClick(){
     marker.addListener('click', function(){
-         smallestDistance();
+        closeAll();
+        smallestDistance();
     });
     for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n]= new google.maps.InfoWindow({
@@ -137,12 +138,16 @@ function checkClick(){
     };
 };
 
+function closeAll(){    
+    infoWindow.close();
+    for(var n= 0; n < stations.names.length; n++){
+        infoWindowStations[n].close();
+    };  
+}
+
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
-        infoWindow.close();
-        for(var n= 0; n < stations.names.length; n++){
-            infoWindowStations[n].close();
-        };  
+        closeAll();
         sinfoWindow.open(map, smarker);
     });
 };
