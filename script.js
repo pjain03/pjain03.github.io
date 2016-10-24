@@ -174,9 +174,10 @@ function updateDetails(i){
 
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
+        closeAll();
         infoWindowStationsInit();
         updatedContent= updateDetails(sinfoWindow.content);
-        closeAll();
+        sinfoWindow.setContent(updatedContent);
         sinfoWindow.open(map, smarker);
     });
 };
