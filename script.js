@@ -128,6 +128,7 @@ function checkClick(){
     infoWindowStationsInit(); 
     marker.addListener('click', function(){
         closeAll();
+        infoWindowStationsInit(); 
         smallestDistance();
     });
     stationMarkerIWSetup();
@@ -149,15 +150,13 @@ function closeAll(){
 function infoWindowStationsInit(){
     for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n]= new google.maps.InfoWindow({
-            content: stations.names[n]
+            content: stations.names[n] 
         });
-    };
-    for(var n= 0; stations.names.length; n++){
-        infoWindowStations[n].setContent(updateDetails(stations.names));
     };
 };
 
 function updateDetails(i){
+    processRequest();
     var limit= schedule.TripList.Trips.length;
     var update= "<u>Trains Passing through " + i +":</u><br/>";
     for(var n= 0; n < limit; n++){
@@ -167,7 +166,7 @@ function updateDetails(i){
         for(var o= 0; o < limitPred; o++){
             if(i === schedule.TripList.Trips[n].Predictions[o].Stop){
                 pred+= schedule.TripList.Trips[n].Predictions[o].Stop + ", in " +
-                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds. <br/>";
+                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds <br/>";
                 flag= true;
             }
         };
@@ -181,6 +180,9 @@ function updateDetails(i){
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
         closeAll();
+        infoWindowStationsInit(); 
+        updatedContent= updateDetails(sinfoWindow.content);
+        sinfoWindow.setContent(updatedContent);
         sinfoWindow.open(map, smarker);
     });
 };
