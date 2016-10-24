@@ -126,6 +126,7 @@ function markPaths(){
 function checkClick(){
     marker.addListener('click', function(){
         closeAll();
+        infoWindowStationsInit(); 
         smallestDistance();
     });
     for(var n= 0; n < stations.names.length; n++){
@@ -134,7 +135,6 @@ function checkClick(){
 };
 
 function closeAll(){   
-    infoWindowStationsInit(); 
     infoWindow.close();
     for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n].close();
@@ -174,6 +174,7 @@ function updateDetails(i){
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
         closeAll();
+        infoWindowStationsInit(); 
         updatedContent= updateDetails(sinfoWindow.content);
         sinfoWindow.setContent(updatedContent);
         sinfoWindow.open(map, smarker);
