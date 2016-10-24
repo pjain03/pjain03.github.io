@@ -32,6 +32,7 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
+    processRequest();
     getLocation();
 };    
 
@@ -167,7 +168,7 @@ function updateDetails(i){
             }
         };
         if(flag){
-            update+= "Final Destination is " + schedule.TripList.Trips[n].Destination + "<br/>: " + pred + "<br/>";
+            update+= "Final Destination is " + schedule.TripList.Trips[n].Destination + ": <br/>" + pred + "<br/>";
         }
     };
     return update;
