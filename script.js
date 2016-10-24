@@ -125,7 +125,11 @@ function markPaths(){
 };
 
 function checkClick(){
-    infoWindowStationsInit(); 
+    for(var n= 0; n < stations.names.length; n++){}
+        infoWindowStations[n]= new google.maps.InfoWindow({
+            content: stations.names[n] 
+        });
+    };
     marker.addListener('click', function(){
         closeAll();
         infoWindowStationsInit(); 
@@ -149,9 +153,7 @@ function closeAll(){
 
 function infoWindowStationsInit(){
     for(var n= 0; n < stations.names.length; n++){
-        infoWindowStations[n]= new google.maps.InfoWindow({
-            content: stations.names[n] 
-        });
+        infoWindowStations[n].setContent(stations.names[n]);
     };
 };
 
