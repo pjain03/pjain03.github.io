@@ -152,6 +152,8 @@ function infoWindowStationsInit(){
         infoWindowStations[n]= new google.maps.InfoWindow({
             content: stations.names[n] 
         });
+        updatedContent= updateDetails(sinfoWindow.content);
+        sinfoWindow.setContent(updatedContent);
     };
 };
 
@@ -181,8 +183,6 @@ function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
         closeAll();
         infoWindowStationsInit(); 
-        updatedContent= updateDetails(sinfoWindow.content);
-        sinfoWindow.setContent(updatedContent);
         sinfoWindow.open(map, smarker);
     });
 };
