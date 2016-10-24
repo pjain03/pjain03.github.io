@@ -125,7 +125,7 @@ function markPaths(){
 };
 
 function checkClick(){
-    for(var n= 0; n < stations.names.length; n++){}
+    for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n]= new google.maps.InfoWindow({
             content: stations.names[n] 
         });
