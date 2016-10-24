@@ -153,7 +153,7 @@ function infoWindowStationsInit(){
 function updateDetails(i){
     processRequest();
     var limit= schedule.TripList.Trips.length;
-    var update= "<u>Trains Passing through</u> " + i +":<br/>";
+    var update= "<u>Trains Passing through " + i +":</u><br/>";
     for(var n= 0; n < limit; n++){
         var limitPred= schedule.TripList.Trips[n].Predictions.length;
         var flag= false;
