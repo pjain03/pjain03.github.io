@@ -145,7 +145,7 @@ function closeAll(){
 function infoWindowStationsInit(){
     for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n]= new google.maps.InfoWindow({
-            content: ""
+            content: stations.names[n] 
         });
     };
 };
