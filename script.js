@@ -7,7 +7,7 @@ var myOptions = {
 };
 var map;
 var marker;
-var infoWindow;
+var infoWindow= new google.maps.InfoWindow();
 var names;
 var lat;
 var lng;
