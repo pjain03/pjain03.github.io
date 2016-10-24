@@ -135,34 +135,14 @@ function checkClick(){
 };
 
 function stationMarkerIWSetup(){
-    setUpInfoWindow(stationMarker[0], infoWindowStations[0]);
-    setUpInfoWindow(stationMarker[1], infoWindowStations[1]);
-    setUpInfoWindow(stationMarker[2], infoWindowStations[2]);
-    setUpInfoWindow(stationMarker[3], infoWindowStations[3]);
-    setUpInfoWindow(stationMarker[4], infoWindowStations[4]);
-    setUpInfoWindow(stationMarker[5], infoWindowStations[5]);
-    setUpInfoWindow(stationMarker[6], infoWindowStations[6]);
-    setUpInfoWindow(stationMarker[7], infoWindowStations[7]);
-    setUpInfoWindow(stationMarker[8], infoWindowStations[8]);
-    setUpInfoWindow(stationMarker[9], infoWindowStations[9]);
-    setUpInfoWindow(stationMarker[10], infoWindowStations[10]);
-    setUpInfoWindow(stationMarker[11], infoWindowStations[11]);
-    setUpInfoWindow(stationMarker[12], infoWindowStations[12]);
-    setUpInfoWindow(stationMarker[13], infoWindowStations[13]);
-    setUpInfoWindow(stationMarker[14], infoWindowStations[14]);
-    setUpInfoWindow(stationMarker[15], infoWindowStations[15]);
-    setUpInfoWindow(stationMarker[16], infoWindowStations[16]);
-    setUpInfoWindow(stationMarker[17], infoWindowStations[17]);
-    setUpInfoWindow(stationMarker[18], infoWindowStations[18]);
-    setUpInfoWindow(stationMarker[19], infoWindowStations[19]);
-    setUpInfoWindow(stationMarker[20], infoWindowStations[20]);
-    setUpInfoWindow(stationMarker[21], infoWindowStations[21]);
+    for(var n= 0; n < stations.names.length; n++){
+        setUpInfoWindow(stationMarker[n], infoWindowStations[n]);
+    };
 };
 
 function closeAll(){   
     infoWindow.close();
     for(var n= 0; n < stations.names.length; n++){
-        if(infoWindowStations[n].open())
         infoWindowStations[n].close();
     };  
 };
