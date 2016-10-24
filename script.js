@@ -149,16 +149,15 @@ function closeAll(){
 
 function infoWindowStationsInit(){
     for(var n= 0; n < stations.names.length; n++){
-        infoWindowStations[n]= new google.maps.InfoWindow({
-            content: stations.names[n] 
-        });
+        infoWindowStations[n]= new google.maps.InfoWindow();
+        infoWindowStations[n].setContent(stations.names[n]);
     };
 };
 
 function updateDetails(i){
     processRequest();
-        closeAll();
-        infoWindowStationsInit(); 
+    closeAll();
+    infoWindowStationsInit(); 
     var limit= schedule.TripList.Trips.length;
     var update= "<u>Trains Passing through " + i +":</u><br/>";
     for(var n= 0; n < limit; n++){
@@ -168,7 +167,7 @@ function updateDetails(i){
         for(var o= 0; o < limitPred; o++){
             if(i === schedule.TripList.Trips[n].Predictions[o].Stop){
                 pred+= schedule.TripList.Trips[n].Predictions[o].Stop + ", in " +
-                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds <br/>";
+                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds. <br/>";
                 flag= true;
             }
         };
