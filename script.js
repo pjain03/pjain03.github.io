@@ -133,14 +133,14 @@ function checkClick(){
         });
     };
     for(var n= 0; n < stations.names.length; n++){
-        stationMarker[n].addListener('click', function(){
-            infoWindowStations[n].open(map, stationMarker[n]);
-        });
+        setUpInfoWindow(stationMarker[n], infoWindowStations[n]);
     };
 };
 
-function setUpInfoWindow(i){
-
+function setUpInfoWindow(smarker, sinfoWindow){
+    smarker.addListener('click', function(){
+            sinfoWindow.open(map, smarker);
+        });
 };
 
 function smallestDistance(){
