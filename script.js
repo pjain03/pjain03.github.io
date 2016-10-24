@@ -32,7 +32,6 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
-    processRequest();
     getLocation();
 };    
 
