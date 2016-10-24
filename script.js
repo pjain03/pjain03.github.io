@@ -153,7 +153,7 @@ function infoWindowStationsInit(){
         });
     };
     for(var n= 0; stations.names.length; n++){
-        infoWindowStations[n].setContent(updateDetails(stations.names);
+        infoWindowStations[n].setContent(updateDetails(stations.names));
     };
 };
 
