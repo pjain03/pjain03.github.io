@@ -124,6 +124,7 @@ function markPaths(){
 };
 
 function checkClick(){
+    infoWindowStationsInit(); 
     marker.addListener('click', function(){
         closeAll();
         infoWindowStationsInit(); 
