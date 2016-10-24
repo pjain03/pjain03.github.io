@@ -139,6 +139,7 @@ function checkClick(){
 
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
+        infoWindow.close();
         for(var n= 0; n < stations.names.length; n++){
             infoWindowStations[n].close();
         };  
