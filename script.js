@@ -161,7 +161,7 @@ function updateDetails(i){
         for(var o= 0; o < limitPred; o++){
             if(i === schedule.TripList.Trips[n].Predictions[o].Stop){
                 pred+= schedule.TripList.Trips[n].Predictions[o].Stop + ", in " +
-                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds ||";
+                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds \n";
                 flag= true;
             }
         };
