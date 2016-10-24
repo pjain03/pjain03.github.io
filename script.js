@@ -32,6 +32,11 @@ var stationInfoWindow;
 
 function init(){
     map= new google.maps.Map(document.getElementById('map'), myOptions);
+    processRequest();
+    getLocation();
+};    
+
+function processRequest(){
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
@@ -42,11 +47,6 @@ function init(){
             processRequest();
         }
     };
-    processRequest();
-    getLocation();
-};    
-
-function processRequest(){
     request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
     request.send();
 };
@@ -129,11 +129,7 @@ function checkClick(){
         closeAll();
         smallestDistance();
     });
-    for(var n= 0; n < stations.names.length; n++){
-        infoWindowStations[n]= new google.maps.InfoWindow({
-            content: stations.names[n]
-        });
-    };
+    infoWindowStationsInit();
     for(var n= 0; n < stations.names.length; n++){
         setUpInfoWindow(stationMarker[n], infoWindowStations[n]);
     };
@@ -144,6 +140,19 @@ function closeAll(){
     for(var n= 0; n < stations.names.length; n++){
         infoWindowStations[n].close();
     };  
+}
+
+function infoWindowStationsInit(){
+    for(var n= 0; n < stations.names.length; n++){
+        var details= updateDetails(stations.names[n]);
+        infoWindowStations[n]= new google.maps.InfoWindow({
+            content: stations.names[n] 
+        });
+    };
+};
+
+function updateDetails(i){
+    return i;
 }
 
 function setUpInfoWindow(smarker, sinfoWindow){
