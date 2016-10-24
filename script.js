@@ -41,7 +41,6 @@ function processRequest(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             schedule= request.responseText;
             schedule= JSON.parse(schedule);
-            console.log(schedule);
         } 
         else if(request.readyState === XMLHttpRequest.DONE && request.status === 404){
             processRequest();
