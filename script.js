@@ -139,8 +139,11 @@ function checkClick(){
 
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
-            sinfoWindow.open(map, smarker);
-        });
+        for(var n= 0; n < stations.names.length; n++){
+            infoWindowStations[n].close();
+        };  
+        sinfoWindow.open(map, smarker);
+    });
 };
 
 function smallestDistance(){
