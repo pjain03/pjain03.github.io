@@ -153,14 +153,29 @@ function infoWindowStationsInit(){
 function updateDetails(i){
     processRequest();
     var limit= schedule.TripList.Trips.length;
-    console.log(limit);
+    var update= "Trains Passing through " + i.content +":\n";
+    for(var n= 0; n < limit; n++){
+        var limitPred= schedule.TripList.Trips[n].Predictions.length;
+        var flag= false;
+        var pred= " ";
+        for(var o= 0; o < limitPred.length; o++){
+            if(i === schedule.TripList.Trips[n].Predictions[o].Stop){
+                pred+= schedule.TripList.Trips[n].Predictions[o].Stop + ", in " +
+                    schedule.TripList.Trips[n].Predictions[o].Seconds + " seconds ||";
+            }
+        };
+        if(flag){
+            update+= schedule.TripList.Trips[n].Destination + ": " + pred + "\n";
+        }
+    };
+    return update;
 }
 
 function setUpInfoWindow(smarker, sinfoWindow){
     smarker.addListener('click', function(){
-        closeAll();
         infoWindowStationsInit();
-        updateDetails(sinfoWindow.content);
+        updatedContent= updateDetails(sinfoWindow.content);
+        closeAll();
         sinfoWindow.open(map, smarker);
     });
 };
