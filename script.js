@@ -137,6 +137,7 @@ function checkClick(){
 function closeAll(){   
     infoWindow.close();
     for(var n= 0; n < stations.names.length; n++){
+        if(infoWindowStations[n].open())
         infoWindowStations[n].close();
     };  
 };
