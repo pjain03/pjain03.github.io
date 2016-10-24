@@ -133,7 +133,7 @@ function checkClick(){
         });
     };
     for(var n= 0; n < stations.names.length; n++){
-        stationMarker[n].addListener('click', function{
+        stationMarker[n].addListener('click', function(){
             infoWindowStations[n].open(map, stationMarker[n]);
         });
     };
