@@ -155,9 +155,7 @@ function infoWindowStationsInit(){
 };
 
 function updateDetails(i){
-    processRequest();
-    closeAll();
-    infoWindowStationsInit(); 
+    processRequest(); 
     var limit= schedule.TripList.Trips.length;
     var update= "<u>Trains Passing through " + i +":</u><br/>";
     for(var n= 0; n < limit; n++){
@@ -179,6 +177,8 @@ function updateDetails(i){
 };
 
 function setUpInfoWindow(smarker, sinfoWindow){
+    closeAll();
+    infoWindowStationsInit();
     smarker.addListener('click', function(){
         updatedContent= updateDetails(sinfoWindow.content);
         sinfoWindow.setContent(updatedContent);
