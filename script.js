@@ -46,7 +46,7 @@ function processRequest(){
             processRequest();
         }
     };
-    request.open("get", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
+    request.open("get", "https://serene-wildwood-36147.herokuapp.com/redline.json");
     request.send();
 };
 
